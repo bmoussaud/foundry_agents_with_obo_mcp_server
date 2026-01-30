@@ -37,20 +37,14 @@ After opening the project in the DevContainer:
    ```bash
    # Backend API
    cd foundry_agent_backend_api
-   python -m venv venv
-   source venv/bin/activate
    pip install -r requirements.txt
    
    # Agent Scripts
    cd ../foundry_agents
-   python -m venv venv
-   source venv/bin/activate
    pip install -r requirements.txt
    
    # MCP Server
    cd ../custom_jira_confluence_mcp_server
-   python -m venv venv
-   source venv/bin/activate
    pip install -r requirements.txt
    ```
 
@@ -63,6 +57,8 @@ After opening the project in the DevContainer:
 3. **Configure environment files** by copying `.env.sample` to `.env` in each project directory and updating with your values.
 
 4. Follow the main [README.md](../README.md) for detailed setup instructions.
+
+> **Note**: The DevContainer provides an isolated environment, so you can install Python packages directly without creating additional virtual environments. However, if you prefer to use virtual environments (e.g., for local testing outside the container), you can create them as described in the main README.
 
 ## Troubleshooting
 
