@@ -1,0 +1,51 @@
+{
+	"name": "Foundry Agents with OBO MCP Server",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.10"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "18"
+		},
+		"ghcr.io/devcontainers/features/azure-cli:latest": {},
+		"ghcr.io/azure/azure-dev/azd:latest": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:latest": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"ms-azuretools.vscode-bicep",
+				"ms-vscode.azure-account"
+			],
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": false,
+				"python.formatting.provider": "black",
+				"editor.formatOnSave": true
+			}
+		}
+	},
+	"postCreateCommand": "echo 'DevContainer setup complete! Install project dependencies with: pip install -r requirements.txt (in each Python project) and npm install (in spa_foundry_agent_webapp)'",
+	"forwardPorts": [3000, 8000, 8765],
+	"portsAttributes": {
+		"3000": {
+			"label": "React SPA",
+			"onAutoForward": "notify"
+		},
+		"8000": {
+			"label": "MCP Server",
+			"onAutoForward": "notify"
+		},
+		"8765": {
+			"label": "Backend API",
+			"onAutoForward": "notify"
+		}
+	},
+	"remoteUser": "vscode"
+}
